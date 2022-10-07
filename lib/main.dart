@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:oyo/controll/bloc/SearchBloc/search_bloc.dart';
+import 'package:oyo/controll/bloc/hotelBloc/hotel_bloc.dart';
 import 'package:oyo/screen/widgets/splash.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'screen/userScreen/login.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (BuildContext context)=>SearchBloc()),
+        BlocProvider(create: (BuildContext context)=>HotelBloc()),
+      ],
+      child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

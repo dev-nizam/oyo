@@ -33,9 +33,9 @@ class _RoomState extends State<Room> {
           Row(
             children: [Icon(Icons.star), Text("${3.2}")],
           ),
-          Text("Name"),
-          Text("Bengalore"),
-          Text("Price ${500}"),
+          Text("Name",style: TextStyle(fontSize: 20,),),
+          Text("Bengalore",style: TextStyle(fontSize: 20,),),
+          Text("Price ${500}",style: TextStyle(fontSize: 20,),),
         ],
       ),
     )));
