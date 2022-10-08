@@ -217,7 +217,7 @@ class _LoginState extends State<Login> {
             TextButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (ctx) => HomeScreen()));
+                      MaterialPageRoute(builder: (ctx) => HomeScreen(id: '680331', inDate: DateTime.now().toString().split(" ").first, outDate: DateTime.now().add(Duration(days: 1)).toString().split(" ").first,)));
                 },
                 child: Text(
                   "I'II Signup later",

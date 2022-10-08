@@ -14,8 +14,9 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
   HotelBloc() : super(HotelInitial()) {
     on<GetHotel>((event, emit)async {
       emit(HotelLoading());
+      print("blocworked");
       try{
-        hotelModel = await hotelApi.Hotels();
+        hotelModel = await hotelApi.Hotels(event.id,event.indate,event.outdate);
         emit(HotelLoaded());
       }catch(e){
         emit(HotelError());
