@@ -229,7 +229,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   width: 10,
                                 );
                               },
-                              itemCount: 20),
+                              itemCount: hotelModel.data!.body!.searchResults!.results![0]!.name!.length),
                         ),
                         SizedBox(
                           height: 5,

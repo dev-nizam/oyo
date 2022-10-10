@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oyo/controll/bloc/SearchBloc/search_bloc.dart';
 import 'package:oyo/controll/bloc/hotelBloc/hotel_bloc.dart';
+import 'package:oyo/screen/widgets/introslider.dart';
 import 'package:oyo/screen/widgets/splash.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'screen/userScreen/login.dart';
