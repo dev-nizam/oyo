@@ -11,31 +11,33 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  // checkPreferanc() async {
-  //   final prefs = await SharedPreferences.getInstance();
-  //   if (prefs.containsKey('name')) {
-  //     print(await prefs.getString('name').toString());
-  //     String alraedyName = await prefs.getString('name').toString();
-  //     prefs.setString('name', alraedyName + "kl");
-  //   } else {
-  //     prefs.setString('name', "new name");
-  //   }
-  // }
+  checkPreferanc() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    if (prefs.containsKey('isOpened')) {
+      Future.delayed(Duration(seconds: 3), () {
+        if (prefs.getBool('isOpened')!) {
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => Login()),
+              (route) => false);
+        } else {
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => IntroSliderDemo()),
+              (route) => false);
+        }
+      });
+
+
+    }
+    else {
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => IntroSliderDemo()), (route) => false);
+    }
+  }
 
   @override
   void initState() {
-    // checkPreferanc();
-    Future.delayed(Duration(seconds: 3), () async {
-      final prefs = await SharedPreferences.getInstance();
-      if (prefs.getString('done') == null) {
-        Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => IntroSliderDemo()),
-            (route) => false);
-      } else {
-        Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => Login()), (route) => false);
-      }
-    });
+    checkPreferanc();
     super.initState();
   }
 

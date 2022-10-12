@@ -16,8 +16,8 @@ class _IntroSliderDemorState extends State<IntroSliderDemo> {
   Widget build(BuildContext context) {
     return IntroSlider(
       onDonePress: ()async{
-          final prefs = await SharedPreferences.getInstance();
-          prefs.setString('done', "introslider");
+        final prefs = await SharedPreferences.getInstance();
+        prefs.setBool('isOpened',true );
         print("AIRJIE");
         Navigator.push(context,MaterialPageRoute(builder: (ctx)=>Login()));
       },
